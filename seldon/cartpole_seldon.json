@@ -5,14 +5,14 @@
         "labels": {
             "app": "seldon"
         },
-        "name": "cartpole-rl"
+        "name": "cartpole"
     },
     "spec": {
         "annotations": {
-            "project_name": "Cartpole RL",
+            "project_name": "Cartpole Prediction",
             "deployment_version": "v1"
         },
-        "name": "cartpole-rl",
+        "name": "cartpole-deployment",
         "oauth_key": "oauth-key",
         "oauth_secret": "oauth-secret",
         "predictors": [
@@ -21,9 +21,9 @@
                     "spec": {
                         "containers": [
                             {
-                                "image": "hypnosapos/cartpolerlremoteagent:VERSION",
+                                "image": "hypnosapos/cartpolerlremoteagent:2b6ad86",
                                 "imagePullPolicy": "Always",
-                                "name": "keras-cartpole",
+                                "name": "cartpole",
                                 "resources": {
                                     "requests": {
                                         "memory": "2Mi"
@@ -36,14 +36,13 @@
                 },
                 "graph": {
                     "children": [],
-                    "name": "cartpole-rl-predictor",
+                    "name": "cartpole",
                     "endpoint": {
                         "type" : "REST"
                     },
-                    "subtype": "MICROSERVICE",
                     "type": "MODEL"
                 },
-                "name": "keras-cartpole-predictor",
+                "name": "cartpole-predictor",
                 "replicas": 1,
                 "annotations": {
                 "predictor_version" : "v1"

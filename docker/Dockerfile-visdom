@@ -1,0 +1,18 @@
+FROM python:3.6-jessie
+
+ENV COMMITSH=3e99bb0
+ENV HOSTNAME='localhost'
+
+RUN apt-get install git
+
+RUN git clone https://github.com/facebookresearch/visdom.git &&\
+    cd visdom &&\
+    git reset --hard $COMMITSH &&\
+    pip install -U pip &&\
+    pip install .
+
+WORKDIR /visdom
+
+EXPOSE 8097
+
+ENTRYPOINT python -m visdom.server

@@ -3,6 +3,6 @@ name: keras-cartpole
 oauth_key: oauth_key
 oauth_secret: oauth_secret
 config:
-  type: MODEL
+  type: [MODEL,
   image:
-    tag: VERSION
+    tag: 0.0.5

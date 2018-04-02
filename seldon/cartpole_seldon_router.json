@@ -21,9 +21,9 @@
 		    "spec": {
 			"containers": [
 			    {
-				"image": "hypnosapos/cartpolerlremoteagent:1ef114d",
+				"image": "hypnosapos/cartpolerlremoteagent:untrained",
 				"imagePullPolicy": "IfNotPresent",
-				"name": "cartpole-rl-a",
+				"name": "cartpole-rl-router-a",
 				"resources": {
 				    "requests": {
 					"memory": "1Mi"
@@ -31,9 +31,9 @@
 				}
 			    },
 			    {
-				"image": "hypnosapos/cartpolerlremoteagent:1ef114d",
+				"image": "hypnosapos/cartpolerlremoteagent:2b6ad86",
 				"imagePullPolicy": "IfNotPresent",
-				"name": "cartpole-rl-b",
+				"name": "cartpole-rl-router-b",
 				"resources": {
 				    "requests": {
 					"memory": "1Mi"
@@ -41,9 +41,9 @@
 				}
 			    },
 				{
-				"image": "hypnosapos/cartpolerlremoteagent:1ef114d",
+				"image": "hypnosapos/cartpolerlremoteagent:untrained",
 				"imagePullPolicy": "IfNotPresent",
-				"name": "cartpole-rl-c",
+				"name": "cartpole-rl-router-c",
 				"resources": {
 				    "requests": {
 					"memory": "1Mi"
@@ -74,7 +74,7 @@
 			},
 			{
 			    "name": "epsilon",
-			    "value": "0.3",
+			    "value": "0.2",
 			    "type": "FLOAT"
 			},
 			{
@@ -85,15 +85,15 @@
 		    ],
 		    "children": [
 			{
-			    "name": "cartpole-rl-a",
+			    "name": "cartpole-rl-router-a",
 			    "type": "MODEL"
 			},
 			{
-			    "name": "cartpole-rl-b",
+			    "name": "cartpole-rl-router-b",
 			    "type": "MODEL"
 			},
 			{
-			    "name": "cartpole-rl-c",
+			    "name": "cartpole-rl-router-c",
 			    "type": "MODEL"
 			}
 		    ]
